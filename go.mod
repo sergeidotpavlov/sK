@@ -1,4 +1,4 @@
-module github.com/sergeidotpavlov/systemK
+module github.com/sergeidotpavlov/sK
 
 go 1.21.4
 
