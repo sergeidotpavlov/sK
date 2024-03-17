@@ -5,7 +5,7 @@
  *
  * API version: 1.0.0
  */
-package swagger
+package mware
 
 type CreateWorkerRequest struct {
 	// id должности

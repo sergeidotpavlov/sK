@@ -5,7 +5,7 @@
 *
 * API version: 1.0.0
  */
-package main
+package mware
 
 import (
 	"context"
@@ -16,10 +16,9 @@ import (
 	"time"
 
 	"github.com/jackc/pgx/v5/pgxpool"
-	sw "github.com/sergeidotpavlov/systemK/user-srv/go"
 )
 
-func main() {
+func Run() {
 	dbpath, exists := os.LookupEnv("DATABASE_URL")
 	//	dbpath = "postgresql:///systemK?host=localhost&port=5432&user=user1&password=1user"
 	if exists {
@@ -36,11 +35,11 @@ func main() {
 		log.Println("pgxpool configured!")
 		// Передаем пул подключений через контекст.
 		//ctx := context.WithValue(context.Background(), "pgxpool", pool)
-		if err := sw.initPool(); err != nil {
+		if err := initPool(); err != nil {
 			log.Println(err)
 		}
 		defer pool.Close()
-		router := sw.NewRouter()
+		router := NewRouter()
 		srv := &http.Server{
 			Addr:         "0.0.0.0:8080",
 			WriteTimeout: time.Second * 15,
