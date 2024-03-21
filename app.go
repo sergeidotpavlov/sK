@@ -18,7 +18,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func Run() {
+func main() {
 	dbpath, exists := os.LookupEnv("DATABASE_URL")
 	//	dbpath = "postgresql:///systemK?host=localhost&port=5432&user=user1&password=1user"
 	if exists {
